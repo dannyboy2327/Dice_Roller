@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.diceroller.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +19,13 @@ class MainActivity : AppCompatActivity() {
 
         //binding.rollButton.text = "Let's Roll"
         binding.rollButton.setOnClickListener {
-            Toast.makeText(this, "Dice rolled!", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Dice rolled!", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random.nextInt(6) + 1
+        binding.resultText.text = randomInt.toString()
     }
 }
